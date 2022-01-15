@@ -2,6 +2,10 @@
 
 
 
+原理
+ASR的輸入是語音片段，輸出是對應的文本內容
+使用深度神經網路（Deep Neural Networks，DNN）實現ASR的一般流程如下
+
 ![image](https://user-images.githubusercontent.com/93765298/149614091-df03b67f-b4c9-475e-9c42-4c21f5d6199f.png)
 
 
