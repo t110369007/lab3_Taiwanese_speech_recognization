@@ -32,6 +32,15 @@ Y_pred = activation(batchnorm(conv1d(h1, len(char2id) + 1, 1, 1)), 'softmax')
 sub_model = Model(inputs=X, outputs=Y_pred)
 
 
+### calc_ctc_loss
+def calc_ctc_loss(args):
+    y, yp, ypl, yl = args
+    return K.ctc_batch_cost(y, yp, ypl, yl)
+
+ctc_loss = Lambda(calc_ctc_loss, output_shape=(1,), name='ctc')([Y, Y_pred, X_length, Y_length])
+model = Model(inputs=[X, Y, X_length, Y_length], outputs=ctc_loss)
+optimizer = SGD(lr=0.02, momentum=0.9, nesterov=True, clipnorm=5)
+model.compile(loss={'ctc': lambda ctc_true, ctc_pred: ctc_pred}, optimizer=optimizer)
 
 ### random_predict
 def random_predict(x, y):
