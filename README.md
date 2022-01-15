@@ -1,4 +1,21 @@
 # lab3_Taiwanese_speech_recognization
+
+
+
+![image](https://user-images.githubusercontent.com/93765298/149614091-df03b67f-b4c9-475e-9c42-4c21f5d6199f.png)
+
+
+
+![image](https://user-images.githubusercontent.com/93765298/149614101-4991cf64-4a15-4ed2-9b5d-f130c10b9163.png)
+
+
+
+
+![image](https://user-images.githubusercontent.com/93765298/149614060-eb7fd8c3-0608-49d5-9c8c-9b0c2282c5bf.png)
+
+
+
+
 ### Create Model
 def conv1d(inputs, filters, kernel_size, dilation_rate):
     return Conv1D(filters=filters, kernel_size=kernel_size, strides=1, padding='causal', activation=None, dilation_rate=dilation_rate)(inputs)
