@@ -2,18 +2,21 @@
 
 
 
-原理
+### 原理
 ASR的輸入是語音片段，輸出是對應的文本內容
 使用深度神經網路（Deep Neural Networks，DNN）實現ASR的一般流程如下
 
 ![image](https://user-images.githubusercontent.com/93765298/149614091-df03b67f-b4c9-475e-9c42-4c21f5d6199f.png)
 
 
-
+### WaveNet模型結構如下所示，
+主要使用了多層因果空洞卷積（Causal Dilated Convolution）和Skip Connections
 ![image](https://user-images.githubusercontent.com/93765298/149614101-4991cf64-4a15-4ed2-9b5d-f130c10b9163.png)
 
 
 
+### 由於MFCC特徵為一維序列，所以使用Conv1D進行卷積
+因果是指，卷積的輸出只和當前位置之前的輸入有關，即不使用未來的特徵，可以理解為將卷積的位置向前偏移
 
 ![image](https://user-images.githubusercontent.com/93765298/149614060-eb7fd8c3-0608-49d5-9c8c-9b0c2282c5bf.png)
 
