@@ -22,6 +22,44 @@ ASR的輸入是語音片段，輸出是對應的文本內容
 
 
 
+### Visualization
+![1](https://user-images.githubusercontent.com/93765298/149708826-d8301113-f478-4bee-9eaa-3fdb68b58e0e.png)
+
+
+![2](https://user-images.githubusercontent.com/93765298/149708841-93ac32a2-1673-409e-9363-0f588467cf4d.png)
+
+
+
+def visualize(index):
+    path = voice_paths[index]
+    text = texts[index]
+    print('Audio Text:', text)
+    
+    audio, sr = load_and_trim(path)
+    plt.figure(figsize=(12, 3))
+    plt.plot(np.arange(len(audio)), audio)
+    plt.title('Raw Audio Signal')
+    plt.xlabel('Time')
+    plt.ylabel('Audio Amplitude')
+    plt.show()
+    
+    feature = mfcc(audio, sr, numcep=mfcc_dim, nfft=551)
+    print('Shape of MFCC:', feature.shape)
+    
+    fig = plt.figure(figsize=(12, 5))
+    ax = fig.add_subplot(111)
+    im = ax.imshow(feature, cmap=plt.cm.jet, aspect='auto')
+    plt.title('Normalized MFCC')
+    plt.ylabel('Time')
+    plt.xlabel('MFCC Coefficient')
+    plt.colorbar(im, cax=make_axes_locatable(ax).append_axes('right', size='5%', pad=0.05))
+    ax.set_xticks(np.arange(0, 13, 2), minor=False);
+    plt.show()
+    
+    return path
+
+Audio(visualize(0))
+
 
 ### Create Model
 def conv1d(inputs, filters, kernel_size, dilation_rate):
