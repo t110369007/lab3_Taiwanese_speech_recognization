@@ -22,6 +22,30 @@ ASR的輸入是語音片段，輸出是對應的文本內容
 
 
 
+### 工作環境
+
+librosa
+
+MFCC
+
+numpy
+
+python_speech_features
+
+tensorflow
+
+make_axes_locatable
+
+Ubuntu 20.04
+
+Python 3.7
+
+Keras(conV1D)
+
+scipy.io.wavfile
+
+
+
 ### Visualization
 ![1](https://user-images.githubusercontent.com/93765298/149708826-d8301113-f478-4bee-9eaa-3fdb68b58e0e.png)
 
