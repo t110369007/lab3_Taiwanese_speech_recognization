@@ -1,0 +1,10 @@
+librosa
+MFCC
+numpy
+python_speech_features
+tensorflow
+make_axes_locatable
+Ubuntu 20.04
+Python 3.7
+Keras(conV1D)
+scipy.io.wavfile
