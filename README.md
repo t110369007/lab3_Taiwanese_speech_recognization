@@ -84,9 +84,6 @@ def visualize(index):
 
 Audio(visualize(0))
 
-### loss process
-![image](https://user-images.githubusercontent.com/93765298/149747606-a0f55ee9-1bcf-43ca-bb0b-1c0777697648.png)
-
 
 ### Create Model
 def conv1d(inputs, filters, kernel_size, dilation_rate):
